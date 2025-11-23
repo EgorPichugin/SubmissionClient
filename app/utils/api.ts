@@ -16,7 +16,7 @@ function normalizeRawSubmission(r: any): Submission {
 
 export const api = {
   async getAllSubmissions(): Promise<Submission[]> {
-    const API_BASE = useRuntimeConfig().public.apiBase;
+    const API_BASE = useRuntimeConfig().public.API_BASE;
 
     const res = await fetch(`${API_BASE}/api/Submissions`);
     const json = await res.json();
@@ -25,7 +25,7 @@ export const api = {
   },
 
   async createSubmission(payload: any): Promise<Submission> {
-    const API_BASE = useRuntimeConfig().public.apiBase;
+    const API_BASE = useRuntimeConfig().public.API_BASE;
 
     const res = await fetch(`${API_BASE}/api/Submissions`, {
       method: 'POST',
@@ -38,7 +38,7 @@ export const api = {
     return normalizeRawSubmission(json);
   },
   async deleteSubmission(id: string): Promise<void> {
-    const API_BASE = useRuntimeConfig().public.apiBase;
+    const API_BASE = useRuntimeConfig().public.API_BASE;
     
     await fetch(`${API_BASE}/api/Submissions/${id}`, {
       method: 'DELETE'

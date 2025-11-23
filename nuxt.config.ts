@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      apiBase: process.env.API_BASE || "http://localhost:5203"
+      API_BASE: process.env.API_BASE
     }
   },
   typescript: {
