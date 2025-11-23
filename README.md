@@ -27,8 +27,14 @@ docker build -t submission-client .
 ```
 
 2) Run docker container
+
+2.1) For Linux
 ```bash
 docker run -p 3000:3000 -e NUXT_PUBLIC_API_BASE="http://0.0.0.0:8080" submission-client
+```
+2.2) For Windows using Docker Desktop / WSL
+```bash
+docker run -p 3000:3000 -e NUXT_PUBLIC_API_BASE="http://localhost:8080" submission-client
 ```
 Open http://localhost:3000
 
@@ -39,7 +45,12 @@ docker pull egorpichugin/submission-client:latest
 ```
 
 2) Run docker container
+2.1) For linux
 ```bash
 docker run -p 3000:3000 -e NUXT_PUBLIC_API_BASE="http://0.0.0.0:8080" egorpichugin/submission-client:latest
+```
+2.2) For Windows using Docker Desktop / WSL
+```bash
+docker run -p 3000:3000 -e NUXT_PUBLIC_API_BASE="http://localhost:8080" egorpichugin/submission-client:latest
 ```
 Open http://localhost:3000
