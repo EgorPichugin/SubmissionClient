@@ -1,75 +1,45 @@
-# Nuxt Minimal Starter
+# Submission Client (Nuxt 4 + Vue 3)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Minimal instructions to run locally and in Docker.
 
-## Setup
-
-Make sure to install dependencies:
-
+## Quick Start
+1) Create .env file with API_BASE url inside
 ```bash
-# npm
+API_BASE=http://localhost:5203 # example
+```
+
+2) Install dependencies
+```bash
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
+3) Run application
 ```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+## Docker Usage Guide
+You can build or pull client docker image.
 
-Build the application for production:
-
+### Build docker image
+1) Build docker image
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+docker build -t submission-client .
 ```
 
-Locally preview production build:
-
+2) Run docker container
 ```bash
-# npm
-npm run preview
+docker run -p 3000:3000 -e -e NUXT_PUBLIC_API_BASE="http://0.0.0.0:8080" submission-client
+```
+Open http://localhost:3000
 
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+### Pull docker image
+1) Pull docker image
+```bash
+docker pull egorpichugin/submission-client:latest
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+2) Run docker container
+```bash
+docker run -p 3000:3000 -e -e NUXT_PUBLIC_API_BASE="http://0.0.0.0:8080" egorpichugin/submission-client:latest
+```
+Open http://localhost:3000
