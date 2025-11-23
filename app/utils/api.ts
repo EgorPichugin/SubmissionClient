@@ -5,8 +5,6 @@ export interface Submission {
   data: string;
 }
 
-const API_BASE = 'http://localhost:5203/api/submissions';
-
 function normalizeRawSubmission(r: any): Submission {
   const id = r.id ?? r.Id;
   const formName = r.formName ?? r.FormName ?? '';
@@ -18,14 +16,18 @@ function normalizeRawSubmission(r: any): Submission {
 
 export const api = {
   async getAllSubmissions(): Promise<Submission[]> {
-    const res = await fetch(API_BASE);
+    const API_BASE = useRuntimeConfig().public.apiBase;
+
+    const res = await fetch(`${API_BASE}/api/Submissions`);
     const json = await res.json();
     if (!Array.isArray(json)) return [];
     return json.map(normalizeRawSubmission);
   },
 
   async createSubmission(payload: any): Promise<Submission> {
-    const res = await fetch(API_BASE, {
+    const API_BASE = useRuntimeConfig().public.apiBase;
+
+    const res = await fetch(`${API_BASE}/api/Submissions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -36,7 +38,9 @@ export const api = {
     return normalizeRawSubmission(json);
   },
   async deleteSubmission(id: string): Promise<void> {
-    await fetch(`${API_BASE}/${id}`, {
+    const API_BASE = useRuntimeConfig().public.apiBase;
+    
+    await fetch(`${API_BASE}/api/Submissions/${id}`, {
       method: 'DELETE'
   });
 }
