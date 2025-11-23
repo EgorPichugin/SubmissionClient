@@ -5,7 +5,7 @@ Minimal instructions to run locally and in Docker.
 ## Quick Start
 1) Create .env file with API_BASE url inside
 ```bash
-API_BASE=http://localhost:5203 # example
+NUXT_PUBLIC_API_BASE=http://localhost:5203 # example
 ```
 
 2) Install dependencies
@@ -28,7 +28,7 @@ docker build -t submission-client .
 
 2) Run docker container
 ```bash
-docker run -p 3000:3000 -e -e NUXT_PUBLIC_API_BASE="http://0.0.0.0:8080" submission-client
+docker run -p 3000:3000 -e NUXT_PUBLIC_API_BASE="http://0.0.0.0:8080" submission-client
 ```
 Open http://localhost:3000
 
@@ -40,6 +40,6 @@ docker pull egorpichugin/submission-client:latest
 
 2) Run docker container
 ```bash
-docker run -p 3000:3000 -e -e NUXT_PUBLIC_API_BASE="http://0.0.0.0:8080" egorpichugin/submission-client:latest
+docker run -p 3000:3000 -e NUXT_PUBLIC_API_BASE="http://0.0.0.0:8080" egorpichugin/submission-client:latest
 ```
 Open http://localhost:3000

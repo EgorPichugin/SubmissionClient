@@ -5,8 +5,11 @@ import { api } from '~/utils/api'
 import type { Submission } from '~/utils/api'
     
 const isRequestFormVisible = ref<boolean>(false);
-const data = await api.getAllSubmissions();
-const submissions = ref<Submission[]>(data || []);
+const submissions = ref<Submission[]>([]);
+
+onMounted(async () => {
+  submissions.value = await api.getAllSubmissions()
+});
 
 const isTableVisible = computed(() => {
   return submissions.value.length > 0;

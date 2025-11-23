@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   runtimeConfig: {
     public: {
-      API_BASE: process.env.API_BASE
+      apiBase: ''
     }
   },
   typescript: {
